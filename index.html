@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AviatorGuru</title>
+</head>
+<body>
+    <h1>Welcome to AviatorGuru</h1>
+    <p>Prediction: <span id="prediction">Loading...</span></p>
+    <button onclick="getPrediction()">Get Prediction</button>
+    <script>
+        async function getPrediction() {
+            const res = await fetch('http://localhost:8000/predict');
+            const data = await res.json();
+            document.getElementById('prediction').innerText = data.prediction;
+        }
+    </script>
+</body>
+</html>
